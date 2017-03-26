@@ -3,8 +3,8 @@ from caesar import encrypt
 
 form = '''
     <form method = "post" action = "cyphered">
-        <label>ROT <input type = "text" name = "r"></label><br>
-        <label>Text <input type = "text" name = "t" value = "plain text"></label><br>
+        <label>ROT </label><input type  = "number" min ="-26" max = "26" name = "r"><br>
+        <label>Text <textarea name = "t"></textarea></label><br>
         <input type = "submit">
     </form>
 '''
@@ -19,10 +19,10 @@ class EncryptHandler(webapp2.RequestHandler):
         t = str(self.request.get("t"))
         ctext = encrypt(t, r)
         newform1 = '<form method = "post" action = "cyphered">'
-        newform2 = '<label>ROT <input type = "text" name = "r" value = ' 
+        newform2 = '<label>ROT <input type = "number" min = "-26" max = "26" name = "r" value = ' 
         newform3 = '></label><br>'
-        newform4 = '<label>Text <input type = "text" name = "t" value = '
-        newform5 = '''></label><br>
+        newform4 = '<label>Text <textarea name = "t">'
+        newform5 = '''</textarea></label><br>
         <input type = "submit">
             </form>
         '''
