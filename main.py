@@ -26,6 +26,6 @@ class EncryptHandler(webapp2.RequestHandler):
         <input type = "submit">
             </form>
         '''
-        self.response.out.write(newform1 + newform2 + str(r) + newform3 + newform4 + ctext + newform5)
+        self.response.out.write(newform1 + "\n" + newform2 + str(r) + newform3 + "\n" + newform4 + ctext + newform5)
 
 app = webapp2.WSGIApplication([('/', MainHandler), ('/cyphered', EncryptHandler)], debug = True)
