@@ -22,7 +22,7 @@ pageHTML = '''
 class MainHandler(webapp2.RequestHandler):
     def write_form(self, num = 0, txt = ""):
         txt = escape(txt, quote = True)
-        self.response.out.write(pageHTML %(num, txt))
+        self.response.write(pageHTML %(num, txt))
 
     def get(self):
         self.write_form()
