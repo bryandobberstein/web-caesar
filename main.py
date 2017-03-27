@@ -2,24 +2,18 @@ import webapp2
 from cgi import escape
 from caesar import encrypt
 
-start = '''
+pageHTML = '''
     <!DOCTYPE HTML>
     <html>
-        <head><title>Caesar Rotation Cypher</title></head>
-        <body>
-        <h1>Caesar Rotation Cypher</h1><br>
-        <h2>Enter a number (-26 to 26) and some text to encypher using Caesar Rotation</h2><br>
-    
-'''
-form = '''
+    <head><title>Caesar Rotation Cypher</title></head>
+    <body>
+    <h1>Caesar Rotation Cypher</h1><br>
+    <h2>Enter a number (-26 to 26) and some text to encypher using Caesar Rotation</h2><br>
     <form method = "post" action = "">
     <label>ROT <input type = "number" min = "-26" max = "26" name = "r" value = %d></label><br>
     <textarea rows = "4" cols = "50" name = "t" placeholder = "Enter text to be encypered...">%s</textarea><br>
     <input type = "submit">
     </form>
-'''
-
-end = '''
     <h6>git clone <a href = "https://github.com/bryandobberstein/web-caesar.git">https://github.com/bryandobberstein/web-caesar.git</a></h6>
     </body>
     </html>
@@ -28,9 +22,7 @@ end = '''
 class MainHandler(webapp2.RequestHandler):
     def write_form(self, num = 0, txt = ""):
         txt = escape(txt, quote = True)
-        self.response.out.write(start)
-        self.response.out.write(form %(num, txt))
-        self.response.out.write(end)
+        self.response.out.write(pageHTML %(num, txt))
 
     def get(self):
         self.write_form()
