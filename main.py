@@ -10,8 +10,8 @@ pageHTML = '''
     <h1>Caesar Rotation Cypher</h1><br>
     <h2>Enter a number (-26 to 26) and some text to encypher using Caesar Rotation</h2><br>
     <form method = "post">
-    <label>ROT <input type = "number" min = "-26" max = "26" name = "r" value = %d></label><br>
-    <textarea rows = "4" cols = "50" name = "t" placeholder = "Enter text to be encypered...">%s</textarea><br>
+    <label>ROT <input type = "number" min = "-26" max = "26" name = "r" value = {}></label><br>
+    <textarea rows = "4" cols = "50" name = "t" placeholder = "Enter text to be encypered...">{}</textarea><br>
     <input type = "submit">
     </form>
     <h6>git clone <a href = "https://github.com/bryandobberstein/web-caesar.git">https://github.com/bryandobberstein/web-caesar.git</a></h6>
@@ -22,7 +22,7 @@ pageHTML = '''
 class MainHandler(webapp2.RequestHandler):
     def write_form(self, num = 0, txt = ""):
         txt = escape(txt, quote = True)
-        self.response.write(pageHTML %(num, txt))
+        self.response.write(pageHTML.format(num, txt))
 
     def get(self):
         self.write_form()
