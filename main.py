@@ -9,7 +9,7 @@ pageHTML = '''
     <body>
     <h1>Caesar Rotation Cypher</h1><br>
     <h2>Enter a number (-26 to 26) and some text to encypher using Caesar Rotation</h2><br>
-    <form method = "post" action = "">
+    <form method = "post">
     <label>ROT <input type = "number" min = "-26" max = "26" name = "r" value = %d></label><br>
     <textarea rows = "4" cols = "50" name = "t" placeholder = "Enter text to be encypered...">%s</textarea><br>
     <input type = "submit">
